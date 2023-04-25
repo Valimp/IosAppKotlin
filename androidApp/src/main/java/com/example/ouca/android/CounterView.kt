@@ -49,9 +49,15 @@ fun CounterView(counterViewModel: CounterViewModel) {
                 modifier = Modifier
                     .width(40.dp)
                     .height(40.dp),
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color(202, 255, 185)
-                )
+                colors = if(count > 0) {
+                    ButtonDefaults.buttonColors(
+                        backgroundColor = Color(202, 255, 185)
+                    )
+                } else {
+                    ButtonDefaults.buttonColors(
+                        backgroundColor = Color(220, 220, 220)
+                    )
+                }
             ) {
                 Text(text = "<")
             }
@@ -61,9 +67,15 @@ fun CounterView(counterViewModel: CounterViewModel) {
                 modifier = Modifier
                     .width(40.dp)
                     .height(40.dp),
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color(202, 255, 185)
-                )
+                colors = if(count < 25) {
+                    ButtonDefaults.buttonColors(
+                        backgroundColor = Color(202, 255, 185)
+                    )
+                } else {
+                    ButtonDefaults.buttonColors(
+                        backgroundColor = Color(220, 220, 220)
+                    )
+                }
             ) {
                 Text(text = ">")
             }
