@@ -13,6 +13,8 @@ espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.8.0"
 ui = "1.4.2"
+androidx-lifecycle = '2.6.1'
+kmm-viewmodel-core = "1.0.0-ALPHA-4"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
@@ -29,6 +31,8 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 kotlin-math = { module = "dev.romainguy:kotlin-math", version.ref = "kotlin-math" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-lifecycle-viewmodel-ktx = { module = 'androidx.lifecycle:lifecycle-viewmodel-ktx', version.ref = 'androidx-lifecycle' }
+kmm-viewmodel-core = { module = "com.rickclephas.kmm:kmm-viewmodel-core", version.ref = "kmm-viewmodel-core" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" }

@@ -24,6 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ouca.CounterViewModel
+import com.example.ouca.CuriosityViewModel
 
 @Composable
 fun CounterView(counterViewModel: CounterViewModel) {
@@ -34,13 +36,13 @@ fun CounterView(counterViewModel: CounterViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
-            .background(Color(240, 255, 235))
+            .background(Color(0xFF7b904b))
     ) {
         Text(
             text = "$count",
             fontSize = 60.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(102, 161, 130)
+            color = Color(0xFF002400)
         )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
@@ -51,15 +53,15 @@ fun CounterView(counterViewModel: CounterViewModel) {
                     .height(40.dp),
                 colors = if(count > 0) {
                     ButtonDefaults.buttonColors(
-                        backgroundColor = Color(202, 255, 185)
+                        backgroundColor = Color(0xFF273b09)
                     )
                 } else {
                     ButtonDefaults.buttonColors(
-                        backgroundColor = Color(220, 220, 220)
+                        backgroundColor = Color(0xFF58641d)
                     )
                 }
             ) {
-                Text(text = "<")
+                Text(text = "-")
             }
             Spacer(modifier = Modifier.width(16.dp))
             Button(
@@ -69,15 +71,15 @@ fun CounterView(counterViewModel: CounterViewModel) {
                     .height(40.dp),
                 colors = if(count < 25) {
                     ButtonDefaults.buttonColors(
-                        backgroundColor = Color(202, 255, 185)
+                        backgroundColor = Color(0xFF273b09)
                     )
                 } else {
                     ButtonDefaults.buttonColors(
-                        backgroundColor = Color(220, 220, 220)
+                        backgroundColor = Color(0xFF58641d)
                     )
                 }
             ) {
-                Text(text = ">")
+                Text(text = "+")
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
@@ -87,7 +89,7 @@ fun CounterView(counterViewModel: CounterViewModel) {
                 .width(100.dp)
                 .height(40.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color(174, 247, 142)
+                backgroundColor = Color(157, 92, 99)
             )
         ) {
             Text(text = "Reset")
@@ -95,7 +97,7 @@ fun CounterView(counterViewModel: CounterViewModel) {
         Spacer(modifier = Modifier.height(72.dp))
         LinearProgressIndicator(
             progress = count.toFloat()/25,
-            color = Color(102, 161, 130)
+            color = Color(0xFF002400)
         )
     }
 }

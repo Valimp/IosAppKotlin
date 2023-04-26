@@ -1,6 +1,8 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.google.devtools.ksp")
+    id("com.rickclephas.kmp.nativecoroutines")
 }
 
 kotlin {
@@ -11,7 +13,6 @@ kotlin {
             }
         }
     }
-    
     listOf(
         iosX64(),
         iosArm64(),
@@ -23,13 +24,24 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
+        val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.kmm.viewmodel.core)
             }
         }
-        val androidMain by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                api(libs.androidx.lifecycle.viewmodel.ktx)
+                implementation(libs.kmm.viewmodel.core)
+            }
+        }
+
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -52,8 +64,13 @@ kotlin {
     }
 }
 
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
+}
+
+
 android {
-    namespace = "com.example.ouca"
+    namespace = "app.myeline.ouca"
     compileSdk = 33
     defaultConfig {
         minSdk = 24

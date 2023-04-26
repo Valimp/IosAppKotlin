@@ -47,4 +47,5 @@ dependencies {
     implementation(libs.androidx.material)
     implementation(libs.androidx.activity.compose)
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kmm.viewmodel.core)
 }
